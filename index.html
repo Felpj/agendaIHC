@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Agenda da Sala</title>
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-p1VmTWVpvVF6xEc/OKB6e5yvY4xblY4t2JtHztXnGkIfNQ3bXe4uZlgL6IaxEZZl5yOCEkBuYw70w5sgYs6eYw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>Agenda da Sala</h1>
+        <nav>
+          <a href="#home" class="nav-link">Home</a>
+          <a href="#sala1" class="nav-link">Sala 1</a>
+          <a href="#sala2" class="nav-link">Sala 2</a>
+          <a href="#sala3" class="nav-link">Sala 3</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div id="eventModal" class="modal">
+        <div class="modal-content">
+          <span class="close-btn" id="closeModal">&times;</span>
+          <h2 id="modalTitle">Criar Evento</h2>
+          <div id="loadingIndicator">
+            <i class="fas fa-spinner fa-spin"></i> Processando...
+          </div>
+          <form id="eventForm">
+            <label for="eventName">Nome do Evento:</label>
+            <input type="text" id="eventName" name="eventName" required />
+
+            <label for="eventDate">Data:</label>
+            <input type="datetime-local" id="eventDate" name="eventDate" required />
+
+            <label for="eventDescription">Descrição:</label>
+            <textarea id="eventDescription" name="eventDescription" required></textarea>
+
+            <button type="submit" id="submitEvent">Salvar</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="container">
+        <section id="home" class="agendamentos home">
+          <h2>Bem-vindo ao Sistema de Agendamento de Salas</h2>
+          <p>
+            Este sistema permite que você crie, edite e exclua eventos em diferentes salas. Selecione uma sala abaixo para gerenciar seus eventos.
+          </p>
+          <div class="action-buttons">
+            <button class="btn-create" data-sala="sala1">
+              <i class="fas fa-plus"></i> Criar Evento na Sala 1
+            </button>
+            <button class="btn-create" data-sala="sala2">
+              <i class="fas fa-plus"></i> Criar Evento na Sala 2
+            </button>
+            <button class="btn-create" data-sala="sala3">
+              <i class="fas fa-plus"></i> Criar Evento na Sala 3
+            </button>
+          </div>
+        </section>
+
+        <section id="sala1" class="agendamentos">
+          <h2>Agendamentos - Sala 1</h2>
+          <div class="action-buttons">
+            <button class="btn-create" data-sala="sala1">
+              <i class="fas fa-plus"></i> Criar Evento
+            </button>
+          </div>
+          <ul>
+            <li data-id="event-1616161616161">
+              <details>
+                <summary>01/01/2024 10:00 - Reunião de Equipe - João Silva</summary>
+                <p>Descrição detalhada do evento.</p>
+                <p>Contato: <a href="mailto:joao.silva@example.com">joao.silva@example.com</a></p>
+                <button class="btn-edit-event" data-sala="sala1" data-name="Reunião de Equipe" data-date="2024-01-01T10:00" data-description="Descrição detalhada do evento.">
+                  <i class="fas fa-edit"></i> Editar
+                </button>
+                <button class="btn-delete-event" data-sala="sala1" data-id="event-1616161616161">
+                  <i class="fas fa-trash-alt"></i> Excluir
+                </button>
+              </details>
+            </li>
+            <li data-id="event-1616161616162">
+              <details>
+                <summary>05/01/2024 14:00 - Workshop - Ana Pereira</summary>
+                <p>Descrição detalhada do evento.</p>
+                <p>Contato: <a href="mailto:ana.pereira@example.com">ana.pereira@example.com</a></p>
+                <button class="btn-edit-event" data-sala="sala1" data-name="Workshop" data-date="2024-01-05T14:00" data-description="Descrição detalhada do evento.">
+                  <i class="fas fa-edit"></i> Editar
+                </button>
+                <button class="btn-delete-event" data-sala="sala1" data-id="event-1616161616162">
+                  <i class="fas fa-trash-alt"></i> Excluir
+                </button>
+              </details>
+            </li>
+          </ul>
+        </section>
+
+        <section id="sala2" class="agendamentos">
+          <h2>Agendamentos - Sala 2</h2>
+          <div class="action-buttons">
+            <button class="btn-create" data-sala="sala2">
+              <i class="fas fa-plus"></i> Criar Evento
+            </button>
+          </div>
+          <ul>
+            <li data-id="event-1616161616163">
+              <details>
+                <summary>02/01/2024 09:00 - Treinamento - Carlos Souza</summary>
+                <p>Descrição detalhada do evento.</p>
+                <p>Contato: <a href="mailto:carlos.souza@example.com">carlos.souza@example.com</a></p>
+                <button class="btn-edit-event" data-sala="sala2" data-name="Treinamento" data-date="2024-01-02T09:00" data-description="Descrição detalhada do evento.">
+                  <i class="fas fa-edit"></i> Editar
+                </button>
+                <button class="btn-delete-event" data-sala="sala2" data-id="event-1616161616163">
+                  <i class="fas fa-trash-alt"></i> Excluir
+                </button>
+              </details>
+            </li>
+            <li data-id="event-1616161616164">
+              <details>
+                <summary>06/01/2024 16:00 - Palestra - Maria Oliveira</summary>
+                <p>Descrição detalhada do evento.</p>
+                <p>Contato: <a href="mailto:maria.oliveira@example.com">maria.oliveira@example.com</a></p>
+                <button class="btn-edit-event" data-sala="sala2" data-name="Palestra" data-date="2024-01-06T16:00" data-description="Descrição detalhada do evento.">
+                  <i class="fas fa-edit"></i> Editar
+                </button>
+                <button class="btn-delete-event" data-sala="sala2" data-id="event-1616161616164">
+                  <i class="fas fa-trash-alt"></i> Excluir
+                </button>
+              </details>
+            </li>
+          </ul>
+        </section>
+
+        <section id="sala3" class="agendamentos">
+          <h2>Agendamentos - Sala 3</h2>
+          <div class="action-buttons">
+            <button class="btn-create" data-sala="sala3">
+              <i class="fas fa-plus"></i> Criar Evento
+            </button>
+          </div>
+          <ul>
+            <li data-id="event-1616161616165">
+              <details>
+                <summary>03/01/2024 11:00 - Conferência - Pedro Lima</summary>
+                <p>Descrição detalhada do evento.</p>
+                <p>Contato: <a href="mailto:pedro.lima@example.com">pedro.lima@example.com</a></p>
+                <button class="btn-edit-event" data-sala="sala3" data-name="Conferência" data-date="2024-01-03T11:00" data-description="Descrição detalhada do evento.">
+                  <i class="fas fa-edit"></i> Editar
+                </button>
+                <button class="btn-delete-event" data-sala="sala3" data-id="event-1616161616165">
+                  <i class="fas fa-trash-alt"></i> Excluir
+                </button>
+              </details>
+            </li>
+            <li data-id="event-1616161616166">
+              <details>
+                <summary>07/01/2024 13:00 - Seminário - Laura Martins</summary>
+                <p>Descrição detalhada do evento.</p>
+                <p>Contato: <a href="mailto:laura.martins@example.com">laura.martins@example.com</a></p>
+                <button class="btn-edit-event" data-sala="sala3" data-name="Seminário" data-date="2024-01-07T13:00" data-description="Descrição detalhada do evento.">
+                  <i class="fas fa-edit"></i> Editar
+                </button>
+                <button class="btn-delete-event" data-sala="sala3" data-id="event-1616161616166">
+                  <i class="fas fa-trash-alt"></i> Excluir
+                </button>
+              </details>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>Contato: <a href="mailto:suporte@example.com">suporte@example.com</a></p>
+      </div>
+    </footer>
+
+    <!-- Scripts para controlar modais e eventos -->
+    <!-- Carregue main.js antes de modal.js -->
+    <script src="./scripts/main.js"></script>
+    <script src="./scripts/modal.js"></script>
+  </body>
+</html>
